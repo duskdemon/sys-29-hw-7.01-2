@@ -34,17 +34,15 @@
 2. Установить пакет tuned из стандартного репозитория вашей ОС. Запустить его, как демон — конфигурационный файл systemd появится автоматически при установке. Добавить tuned в автозагрузку.
 3. Изменить приветствие системы (motd) при входе на любое другое. Пожалуйста, в этом задании используйте переменную для задания приветствия. Переменную можно задавать любым удобным способом.
 
-```
-[Плейбук 1](https://github.com/duskdemon/sys-29-hw-7.01-2/7-01_2.playbook-1.yml)
-[Плейбук 2](https://github.com/duskdemon/sys-29-hw-7.01-2/7-01_2.playbook-2.yml)
-[Плейбук 3](https://github.com/duskdemon/sys-29-hw-7.01-2/7-01_2.playbook-3.yml)
-```
+1. [Плейбук 1](https://github.com/duskdemon/sys-29-hw-7.01-2/7-01_2.playbook-1.yml)
+2. [Плейбук 2](https://github.com/duskdemon/sys-29-hw-7.01-2/7-01_2.playbook-2.yml)
+3. [Плейбук 3](https://github.com/duskdemon/sys-29-hw-7.01-2/7-01_2.playbook-3.yml)
+
 Скриншоты:
-```
+
 ![Выполнение плейбука 1](https://github.com/duskdemon/sys-29-hw-7.01-2/img/7-02-02-ansible-pb1.png)
 ![Выполнение плейбука 2](https://github.com/duskdemon/sys-29-hw-7.01-2/img/7-02-02-ansible-pb2.png)
 ![Выполнение плейбука 3](https://github.com/duskdemon/sys-29-hw-7.01-2/img/7-02-02-ansible-pb3.png)
-```
 
 ---
 
