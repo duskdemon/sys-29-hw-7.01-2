@@ -1,0 +1,12 @@
+---
+- hosts: vmsnew
+  become: yes
+  tasks:
+  - name: Change motd to new one
+    vars:
+      motd: Hello, Netology!
+      motto: Have a good day, everything will be allright!
+    ansible.builtin.lineinfile:
+      path: /etc/update-motd.d/10-uname
+      regexp: '{{ motd }}'
+      line: "echo IP:{{ ansible_default_ipv4.address }} Host:{{ ansible_hostname }} Message:{{ motto }}"

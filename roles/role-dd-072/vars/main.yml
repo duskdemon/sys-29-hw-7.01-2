@@ -1,0 +1,6 @@
+---
+# vars file for role-dd-072
+nproc: "{{ ansible_processor_vcpus }}"
+ram: "{{ ansible_memtotal_mb }}"
+disk: "{{ ansible_devices.vda.partitions.vda1.size }}"
+ipv4: "{{ ansible_default_ipv4.address }}"

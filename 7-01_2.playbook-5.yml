@@ -1,0 +1,6 @@
+---
+- name: role-dd-072
+  hosts: vmsnew
+  become: yes
+  roles:
+    - role-dd-072

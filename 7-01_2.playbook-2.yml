@@ -1,0 +1,14 @@
+---
+- hosts: vmsnew
+  become: yes
+  tasks:
+  - name: install service
+    ansible.builtin.apt:
+      name: tuned
+      state: latest
+      update_cache: yes
+  - name: Enable service
+    ansible.builtin.systemd:
+      name: tuned
+      state: started
+      enabled: true

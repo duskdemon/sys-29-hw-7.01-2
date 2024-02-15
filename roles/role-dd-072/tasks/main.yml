@@ -1,0 +1,26 @@
+---
+# tasks file for role-dd-072
+- name: install apache2
+  ansible.builtin.apt:
+    name: apache2
+    state: latest
+    update_cache: yes
+  when: ansible_facts ['distribution'] == "Debian"
+
+- name: change apache2 ports.conf
+  ansible.builtin.lineinfile:
+    path: /etc/apache2/ports.conf
+    regexp: '^Listen 80'
+    line: "Listen 88"
+  notify:
+    - Restart-apache2
+
+- name: Flush handlers
+  meta: flush_handlers
+
+- name: changing index.html via jinja2 template
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+
+- include: check_task.yml

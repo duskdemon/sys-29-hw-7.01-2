@@ -1,0 +1,5 @@
+---
+# check_task file for role-dd-072
+- name: Check that webserver is reachable and has status 200
+  ansible.builtin.uri:
+    url: http://{{ ipv4 }}:88

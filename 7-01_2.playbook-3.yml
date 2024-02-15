@@ -1,0 +1,11 @@
+---
+- hosts: vmsnew
+  become: yes
+  tasks:
+  - name: Change motd
+    vars:
+      motd: Hello, Netology!
+    ansible.builtin.lineinfile:
+      path: /etc/update-motd.d/10-uname
+      regexp: '^(#)?uname -snrvm'
+      line: "echo {{ motd }}"
