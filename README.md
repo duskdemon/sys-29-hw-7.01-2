@@ -35,8 +35,24 @@
 3. Изменить приветствие системы (motd) при входе на любое другое. Пожалуйста, в этом задании используйте переменную для задания приветствия. Переменную можно задавать любым удобным способом.
 
 ---
-
-1. [Плейбук 1](https://github.com/duskdemon/sys-29-hw-7.01-2/blob/main/7-01_2.playbook-1.yml)
+### Решение 1
+1. <Details>
+ <Summary>Плейбук 1</Summary>
+ ```
+ ---
+- hosts: vmsnew
+  become: yes
+  tasks:
+  - name: mkdir if not exists
+    ansible.builtin.file:
+      path: /home/dusk/tmpdir
+      state: directory
+  - name: Unarchive a file that needs to be downloaded (added in 2.0)
+    ansible.builtin.unarchive:
+      src: https://mirror.yandex.ru/libreoffice/libreoffice/stable/7.5.9/deb/x86_64/LibreOffice_7.5.9_Linux_x86-64_deb_langpack_ru.tar.gz
+      dest: /home/dusk/tmpdir
+      remote_src: yes
+ ```</Details>[Плейбук 1](https://github.com/duskdemon/sys-29-hw-7.01-2/blob/main/7-01_2.playbook-1.yml)
 2. [Плейбук 2](https://github.com/duskdemon/sys-29-hw-7.01-2/blob/main/7-01_2.playbook-2.yml)
 3. [Плейбук 3](https://github.com/duskdemon/sys-29-hw-7.01-2/blob/main/7-01_2.playbook-3.yml)
 
