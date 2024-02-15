@@ -98,18 +98,28 @@
 
 Модифицируйте плейбук из пункта 3, задания 1. В качестве приветствия он должен установить IP-адрес и hostname управляемого хоста, пожелание хорошего дня системному администратору. 
 
+---
+### Решение 2
+Плейбук 4
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+ ---
+- hosts: vmsnew
+  become: yes
+  tasks:
+  - name: Change motd to new one
+    vars:
+      motd: Hello, Netology!
+      motto: Have a good day, everything will be allright!
+    ansible.builtin.lineinfile:
+      path: /etc/update-motd.d/10-uname
+      regexp: '{{ motd }}'
+      line: "echo IP:{{ ansible_default_ipv4.address }} Host:{{ ansible_hostname }} Message:{{ motto }}"
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 2](ссылка на скриншот 2)`
+Скриншоты:
 
-
+![Выполнение плейбука 4](https://github.com/duskdemon/sys-29-hw-7.01-2/blob/main/img/7-02-02-ansible-pb4.png)
+![Отображение приветствия в ОС](https://github.com/duskdemon/sys-29-hw-7.01-2/blob/main/img/7-02-02-ansible-pb4_c.png)
 ---
 
 ### Задание 3
@@ -131,13 +141,21 @@
 - разместите архив созданной роли у себя на Google диске и приложите ссылку на роль в своём решении;
 - предоставьте скриншоты выполнения плейбука;
 - предоставьте скриншот браузера, отображающего сконфигурированный index.html в качестве сайта.
+---
+### Решение 3
+Плейбук 5
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+---
+- name: role-dd-072
+  hosts: vmsnew
+  become: yes
+  roles:
+    - role-dd-072
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+[Роль в репозитории](https://github.com/duskdemon/sys-29-hw-7.01-2/tree/main/roles/role-dd-072)
+
+Скриншоты:
+
+![Выполнение плейбука 5](https://github.com/duskdemon/sys-29-hw-7.01-2/blob/main/img/7-02-02-ansible-pb5.png)
+![Отображение страницы в браузере](https://github.com/duskdemon/sys-29-hw-7.01-2/blob/main/img/7-02-02-ansible-pb5_web.png)
